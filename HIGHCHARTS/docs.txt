@@ -1,0 +1,9 @@
+http://www.highcharts.com/
+
+You need to purchase a license to host highcharts
+
+
+
+the tool i made is a hack of this:
+
+https://cloud.highcharts.com/

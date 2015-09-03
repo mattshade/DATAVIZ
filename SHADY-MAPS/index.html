@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/leaflet.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+	<div id="map" style=""></div>
+	<div id="attribution" style="padding-top:20px;font-family:klavikar;">
+		<div id="map-source" style="float:left;font-size:12px;color:#a3a3a3;font-weight:normal;"></div>
+		<div id="cnbc-logo" style="text-align:right;"><img src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/logos/cnbc-logo-charts.png"></div>
+	</div>
+	<!-- Fixed navbar -->
+	    <div class="navbar navbar-default " role="navigation">
+	      
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">shady maps</a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	          <ul class="list-inline navbar-nav" style="margin-left:30px;">
+				  
+  				<li>
+  					
+					<div class="form-inline">
+	  					
+					<input id="latitude" type="text" class="form-control" value="40.8897">
+					<input id="longitude" type="text" class="form-control" value="-73.9420">
+					<input id="zoom" type="text" class="form-control" value="12">
+  					<button id="set-center" type="button" class="btn btn-info btn-md">
+  					  <span class="glyphicon glyphicon-screenshot"></span> set center
+  					</button>
+				</div>
+  				</li>
+				
+				 
+				<li>
+					<button id="add-marker" type="button" class="btn btn-info btn-md">
+					  <span class="glyphicon glyphicon-map-marker"></span> marker
+					</button>
+				</li>
+				
+				<li>
+					<div class="form-inline">
+					<input id="height" type="text" class="form-control" value="300">
+					<button id="add-height" type="button" class="btn btn-info btn-md">
+					  <span class="glyphicon glyphicon-resize-vertical"></span> height
+					</button>
+				</div>
+				</li>
+				
+				<li>
+					<div class="form-inline">
+					<input id="source" type="text" class="form-control" value="Source">
+				</div>
+				</li>
+					            
+	          </ul>
+	          <ul class="navbar-nav navbar-right list-inline">
+    				
+  				<li>
+  					<button id="docs" href="http://leafletjs.com/reference.html" type="button" class="btn btn-info btn-md">
+  					  <span class="glyphicon glyphicon-book"></span> docs
+  					</button>
+  				</li>
+	            
+	            
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      
+	    </div>
+	
+	<div class="container">
+		<div id="form" class="col-md-6">
+			
+		</div>
+		<div id="code" class="col-md-6">
+			<button id="embed" href="http://leafletjs.com/reference.html" type="button" class="btn btn-warning btn-md">
+			  <span class="glyphicon glyphicon-send"></span> embed
+			</button>
+			
+			<textarea></textarea>
+		
+			
+		</div>
+
+</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/leaflet.js"></script>
+	<script src="js/leaflet-ui.js"></script>
+	
+	<script>
+
+		var map = L.map('map').setView([40.8897, -73.9420], 12);
+
+		// L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+// 			maxZoom: 18,
+// 			id: 'examples.map-i86knfo3'
+// 		}).addTo(map);
+		
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+
+		// L.marker([42.0542, -71.7400]).addTo(map)
+// 		.bindPopup("<b>Douglas, Ma</b><br />Matt grew up heah.").openPopup();
+	
+
+
+
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(map);
+		}
+
+		map.on('click', onMapClick);
+
+	</script>
+	
+	<textarea class="hidden" id="first-js">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/SHADY-MAPS/js/leaflet.js"></script><script src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/SHADY-MAPS/js/leaflet-ui.js"></script><script>
+	</textarea>
+	
+	<textarea class="hidden" id="second-js">
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+	</textarea>
+	
+	<textarea class="hidden" id="third-js">
+	</script>
+	</textarea>
+	
+	
+	
+</body>
+</html>

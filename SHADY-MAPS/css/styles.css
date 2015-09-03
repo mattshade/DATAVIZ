@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'klavikar';
+    src: url('http://www.cnbc.com/fonts/KLAVIKAR.eot');
+    src: url('http://www.cnbc.com/fonts/KLAVIKAR.eot?#iefix') format('embedded-opentype'),
+         url('http://www.cnbc.com/fonts/KLAVIKAR.woff') format('woff'),
+         url('http://www.cnbc.com/fonts/KLAVIKAR.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.navbar-default .navbar-brand{background:tomato;color:#efefef;}
+.navbar-default .navbar-brand:hover{background:tomato;}
+.navbar-nav{margin-top:10px;}
+#zoom{width:50px;text-align:center;}
+#height{width:80px;text-align:center;}
+#map{width: 100%; height: 300px;}
+#code textarea{height:300px;width:100%;border-color:lightgrey;}
+#embed{margin-bottom:20px;}
+textarea.form-control.popup-text{width:347px;}
+#map-attribution{font-family:'klavikar', Arial;}

@@ -1,0 +1,33 @@
+{
+	"enums": {
+		"chart--type": ["Line", "Spline", "Column", "Area", "Area spline", "Pie", "Area range", "Area spline range", "Box plot", "Bubble", "Column range", "Error bar", "Funnel", "Gauge", "Scatter", "Waterfall"],
+		"series--type": ["Inherit", "Line", "Spline", "Column", "Area", "Area spline", "Pie", "Area range", "Area spline range", "Box plot", "Bubble", "Column range", "Error bar", "Funnel", "Gauge", "Scatter", "Waterfall"],
+		"chart--zoomType": ["None", "X", "Y", "X and Y"],
+		"chart-resetZoomButton--relativeTo": ["Plot", "Chart"],
+
+		"exporting--type": ["PNG image", "JPG image", "PDF document", "SVG vector image"],
+
+		"legend--layout": ["Horizontal", "Vertical"],
+		"legend--align": ["Left", "Center", "Right"],
+		"legend--verticalAlign": ["Top", "Middle", "Bottom"],
+
+		"navigation-buttonOptions--align": ["Left", "Center", "Right"],
+		"navigation-buttonOptions--verticalAlign": ["Top", "Middle", "Bottom"],
+
+		"xAxis--type": ["Linear", "Logarithmic", "Datetime"],
+		"yAxis--type": ["Linear", "Logarithmic", "Datetime"],
+
+		"series<line>--dashStyle": ["Solid", "Short dash", "Short dot", "Short dash-dot", "Short dash-dot-dot", "Dot", "Dash" ,"Long dash", "Dash-dot", "Long dash-dot", "Long dash-dot-dot"],
+		"series<spline>--dashStyle": ["Solid", "Short dash", "Short dot", "Short dash-dot", "Short dash-dot-dot", "Dot", "Dash" ,"Long dash", "Dash-dot", "Long dash-dot", "Long dash-dot-dot"],
+		"series<area>--dashStyle": ["Solid", "Short dash", "Short dot", "Short dash-dot", "Short dash-dot-dot", "Dot", "Dash" ,"Long dash", "Dash-dot", "Long dash-dot", "Long dash-dot-dot"],
+		"series<areaspline>--dashStyle": ["Solid", "Short dash", "Short dot", "Short dash-dot", "Short dash-dot-dot", "Dot", "Dash" ,"Long dash", "Dash-dot", "Long dash-dot", "Long dash-dot-dot"],
+		"series<scatter>--dashStyle": ["Solid", "Short dash", "Short dot", "Short dash-dot", "Short dash-dot-dot", "Dot", "Dash" ,"Long dash", "Dash-dot", "Long dash-dot", "Long dash-dot-dot"],
+
+		"series<line>-marker--symbol": ["None", "Circle", "Square", "Diamond", "Triangle","Triangle-down"],
+		"series<spline>-marker--symbol": ["None", "Circle", "Square", "Diamond", "Triangle","Triangle-down"],
+		"series<area>-marker--symbol": ["None", "Circle", "Square", "Diamond", "Triangle","Triangle-down"],
+		"series<areaspline>-marker--symbol": ["None", "Circle", "Square", "Diamond", "Triangle","Triangle-down"],
+		"series<bubble>-marker--symbol": ["None", "Circle", "Square", "Diamond", "Triangle","Triangle-down"],
+		"series<scatter>-marker--symbol": ["None", "Circle", "Square", "Diamond", "Triangle","Triangle-down"]
+	}
+}

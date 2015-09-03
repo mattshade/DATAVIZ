@@ -1,0 +1,197 @@
+<html>
+  <head>
+    <meta charset="utf-8">	  
+    <title>shady charts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link href="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/INTERNAL/EXPERIMENTS/GOTHAM/HCo_fonts.css" rel="stylesheet" />
+<style>
+.table-wrapper{border:lightgrey solid 2px;margin-top:100px;}
+#chart_div{width:100%;font-family:'Gotham Narrow SSm 4r';}
+</style>
+  </head>
+  <body>
+	  <div id="chart_div"></div>  
+
+	  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+	  	<script type="text/javascript">
+	  	var range = "A:DD";
+	  	var dataSource = "https://docs.google.com/spreadsheet/tq?";
+	  
+		google.load('visualization', '1.1', {'packages' : ['corechart', 'table', 'treemap', 'gauge', 'timeline', 'geochart']});
+		
+		function getQueryVariable(variable) {
+		    var query = window.location.search.substring(1);
+		    var vars = query.split('&');
+		    for (var i = 0; i < vars.length; i++) {
+		        var pair = vars[i].split('=');
+
+		        if (decodeURIComponent(pair[0]) == variable) {           
+						return decodeURIComponent(pair[1]);
+					}
+
+		    }
+			return "";
+		    console.log('Query variable %s not found', variable);
+		}
+	  	
+	  	var key = getQueryVariable('key');
+		var chartHeight = getQueryVariable('height');
+		var chartType = getQueryVariable('type');
+		var chartTitle = getQueryVariable('title');	  	
+		var chart_subtitle_font_size = 14;
+		var chart_title_font_size = 18;
+		var chartSubTitle =getQueryVariable('subtitle');
+		var chartSource =getQueryVariable('source');
+		var chartNotes =getQueryVariable('notes');
+	  	var data;
+	  	var chart;
+	  	var chartTypeString;
+	     
+	  	google.setOnLoadCallback(drawChart);
+	  	// var key = "1a8SaheRTfChYyVhrv9koOSV2SE2eGzhxyE4BmZfZXNU";  EXAMPLE KEY
+
+	  	var dataSourceUrl = dataSource + "&range=" + range + "&key=" + key;
+	
+	  	function drawChart() {
+	  	  var opts = {sendMethod: 'auto'};
+	  	  // Replace the data source URL on next line with your data source URL.
+	  	  var query = new google.visualization.Query(dataSourceUrl, opts);
+
+	  	  // Optional request to return only column C and the sum of column B, grouped by C members.
+	  	  //query.setQuery('select C, sum(B) group by C');
+
+	  	  // Send the query with a callback function.
+	  	  query.send(handleQueryResponse);
+	  	}
+	
+	  	
+	  	
+	
+	  	function handleQueryResponse(response) {
+
+	  	  if (response.isError()) {
+	  	    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+	  	    return;
+	  	  }
+
+	  	  data = response.getDataTable();
+	  	  // chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+	  
+	  	chartTypeString = "new google.visualization."+chartType+"(document.getElementById('chart_div'));";
+	  	chart = eval(chartTypeString);
+	  	chart.draw(data, options);
+	  		addLogo();
+			addTitle();
+			addSource();
+			addSubTitle();
+			addNotes();
+			
+			$('#thesubtitle').text(chartSubTitle);
+			$('#thesource').text(chartSource);
+			$('#thenotes').text(chartNotes);
+	  		// $('#log').text(options.series);
+	
+	  	}
+	
+	  		var options = {
+	  			titleTextStyle:{color: '#333', fontName: 'Gotham Narrow SSm 4r', fontSize: '18'}
+	  			,backgroundColor:{stroke:'#d9dade', strokeWidth:"1"}
+	  			,'height':chartHeight
+	  			,'fontSize':14
+	  			,'fontName':'Gotham Narrow SSm 4r'
+	  			,'hAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+	  			,'vAxis':{baselineColor:'#d9dade',gridlines:{color:'#d9dade'}}
+	  			,'chartArea':{top:60, backgroundColor: {fill: '#f0f3f4',opacity:100}}			,'colors':['#0957aa','#68a627','#ab0000','#006400','#f1d40d','#68228B','#FF8000','#0B243B','#999933','#436EEE','#0B4C5F','#696969','#6E8B3D','#663300','#AB82FF','#EE799F','#FF0000','#1E1E1E','#0000EE','#04B4AE','#31B404']
+	  			,legend:{position:'bottom',textStyle:{color:'#424858'}}
+	  			,pieHole:''
+				,series:{0:{targetAxisIndex:0},1:{targetAxisIndex:1}}			
+	  			,vAxes:{0: {logScale: false},1: {logScale: false}}	  			
+	  			,interpolateNulls: true
+	  		};
+			
+			
+	  	  function addLogo(){
+			  $('svg').attr('id', 'thesvg');	
+	  	  	var logo_bottom_position = $('#chart_div').height() - 25;
+	  	  	var logo_right_position = $('svg').width() - 110;
+	  	  	var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
+	  	  	svgimg.setAttributeNS(null,'height','15');
+	  	  	svgimg.setAttributeNS(null,'width','99');
+	  	  	svgimg.setAttributeNS('http://www.w3.org/1999/xlink','href', 'http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALIZATION/logos/cnbc-logo-charts.png');
+	  	  	svgimg.setAttributeNS(null,'x',logo_right_position);
+	  	  	svgimg.setAttributeNS(null,'y',logo_bottom_position);
+	  	  	svgimg.setAttributeNS(null, 'visibility', 'visible');
+	  	  	$('#thesvg').append(svgimg);
+	  	  }
+		  
+		  function addSource(){
+		  	$('svg').attr('id', 'thesvg');
+		  	var source_bottom_position = $('#thesvg').height() - 10;
+		  	var source_left_position = 10;
+		  	var newText = document.createElementNS("http://www.w3.org/2000/svg","text");
+		  	newText.setAttributeNS(null,"x",source_left_position);     
+		  	newText.setAttributeNS(null,"y",source_bottom_position); 
+		  	newText.setAttributeNS(null,"font-family","Gotham Narrow SSm 4r");
+		  	newText.setAttributeNS(null,"font-size","11");
+		  	newText.setAttributeNS(null,"fill","#a3a3a3");
+		  	newText.setAttributeNS(null,"id","thesource");
+		  	var textNode = document.createTextNode(chartSource);
+		  	newText.appendChild(textNode);
+		  	document.getElementById("thesvg").appendChild(newText);
+		  }
+		  // END ADD SOURCE
+		  function addTitle(){	
+		  	var title_top_position = 30;
+		  	var title_left_position = 10;
+		  	var newTitleText = document.createElementNS("http://www.w3.org/2000/svg","text");
+		  	newTitleText.setAttributeNS(null,"x",title_left_position);     
+		  	newTitleText.setAttributeNS(null,"y",title_top_position); 
+		  	newTitleText.setAttributeNS(null,"font-family","Gotham Narrow SSm 4r");
+		  	newTitleText.setAttributeNS(null,"font-size",chart_title_font_size);
+		  	newTitleText.setAttributeNS(null,"fill","#333");
+		  	newTitleText.setAttributeNS(null,"id","thetitle");
+		  	var textNode = document.createTextNode(chartTitle);
+		  	newTitleText.appendChild(textNode);
+		  	document.getElementById("thesvg").appendChild(newTitleText);
+		  }
+
+		  function addSubTitle(){	
+		  	var subTitle_top_position = 50;
+		  	var subTitle_left_position = 10;
+		  	var subTitleText = document.createElementNS("http://www.w3.org/2000/svg","text");
+		  	subTitleText.setAttributeNS(null,"x",subTitle_left_position);     
+		  	subTitleText.setAttributeNS(null,"y",subTitle_top_position); 
+		  	subTitleText.setAttributeNS(null,"font-family","Gotham Narrow SSm 4r");
+		  	subTitleText.setAttributeNS(null,"font-size",chart_subtitle_font_size);
+		  	subTitleText.setAttributeNS(null,"fill","#333");
+		  	subTitleText.setAttributeNS(null,"id","thesubtitle");
+		  	var subTitletextNode = document.createTextNode(chartSubTitle);
+		  	subTitleText.appendChild(subTitletextNode);
+		  	document.getElementById("thesvg").appendChild(subTitleText);
+		  }
+
+		  function addNotes(){	
+		  	var notes_top_position = $('#thesvg').height() - 30;
+		  	var notes_left_position = 10;
+		  	var notesText = document.createElementNS("http://www.w3.org/2000/svg","text");
+		  	notesText.setAttributeNS(null,"x",notes_left_position);     
+		  	notesText.setAttributeNS(null,"y",notes_top_position); 
+		  	notesText.setAttributeNS(null,"font-family","Gotham Narrow SSm 4r");
+		  	notesText.setAttributeNS(null,"font-size",'11');
+		  	notesText.setAttributeNS(null,"fill","#a3a3a3");
+		  	notesText.setAttributeNS(null,"id","thenotes");
+		  	var notesTextNode = document.createTextNode(chartNotes);
+		  	notesText.appendChild(notesTextNode);
+		  	document.getElementById("thesvg").appendChild(notesText);
+		  }		  
+		  
+		  $( window ).resize(function() {
+			  drawChart();
+		  });
+	  	  </script>
+  </body>
+  </html>
+	  

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"> -->
+<!-- <meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png"> -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+<title>Shady Highcharts Builder</title>
+<link href="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92/css/extlib-4.2.1.3.css" rel="stylesheet" type="text/css">
+<link href="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92/css/editor-all-0.1.92.css" rel="stylesheet" type="text/css">
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Source+Sans Pro:400italic,400,700italic,700" rel="stylesheet" type="text/css">
+ <style>
+ #divEditor{top:0px!important;}
+ </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92/js/extlib-4.2.1.3.min.js" type="text/javascript"></script>
+<script src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92/js/editor-all-0.1.92.js" type="text/javascript"></script>
+
+<script src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/js/picoModal.js"></script>
+<!-- <script src="http://code.highcharts.com/modules/exporting.js"></script> -->
+				<script type="text/javascript">
+
+				// When Ext is ready, build the editor UI.
+				Ext.onReady(function() {
+
+					var serverConfiguration = {
+						contextPath: '',
+						runnerUrl: 'https://runner.highcharts.com',
+						chartsPath: 'http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/',
+						apiPath: 'http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/',
+						resourcesPath: 'http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92'
+					};
+
+					var elementIds = {
+						mainEditor: 'divEditor',
+						statusId: 'loadingDiv',
+						outputContainer: 'container',
+						saveButton: 'savebutton',
+						saveDraftButton: 'savedraftbutton',
+						forkButton: 'forkbutton'
+					};
+
+					var userStatus = {};
+		
+			userStatus.displayedMessageIds = []
+
+				userStatus.isAnonymous = true;
+
+
+					var uiConfig = [{
+						ui: ['importdata', 'templates', {
+							ui: [ 'settings', 'advanced', 'code', {name: 'refine', title: 'Customize<br>3', type: 'tab', id: 'customize-tabs'}]
+						}, 'share', {name: 'EditorTabPanel', type: 'tab'}] // end ui
+					}, {
+						ui: ['output', 'data', {name: 'RightPanel', type: 'panel'}]
+					},{}];
+
+					window.editor = new Editor(uiConfig, window.EditorNS.config.views, serverConfiguration, elementIds, userStatus);
+
+					// Get the configuration name and version from the server variables
+					editor.load('', 0);
+
+					// Connect the buttons
+					$('#savebutton').click(function () {
+						window.onbeforeunload = undefined;
+						editor.save();
+					});
+					$('#savedraftbutton').click(function () {
+						window.onbeforeunload = undefined;
+						editor.saveDraft();
+					});
+					$('#forkbutton').click(function () {
+						window.onbeforeunload = undefined;
+						editor.saveAs();
+					});
+					$('#newbutton').click(function () {
+						window.location.href = serverConfiguration.chartsPath;
+					});
+					$('#loginbutton').click(function () {
+						editor.showLogin();
+					});
+					$('#logoutbutton').click(function () {
+						editor.showLogout();
+					});
+					$('#profilebutton').click(function () {
+						window.location.href = '/users/';
+					});
+					$('#setprivatebutton').click(function () {
+						editor.setPrivateToOwner(true)
+					});
+
+					var loginPage = '';
+					var toast = '';
+					if (loginPage !== '') {
+						editor.showLogin(loginPage);
+					} else if (toast !== '') {
+						editor.showToast('Info', toast);
+					}
+					if (editor.getQuotaExceeded()) {
+						editor.showToast('Info', 'Saving is now disabled because your plan quota is reached. You can upgrade your plan on your profile page!');
+					}
+
+				});
+			</script>
+			</head>
+			<body>
+				<div id="top" class="front-top">
+					<div style="margin: 0 auto; position: relative; min-width: 500px">
+							<a href="/" title="Highcharts Cloud start page">
+								<img id="logo" src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92/images/hcloud_logo_RGB.svg" />
+							</a>
+							<span id="release">Beta</span>
+							<div class="profile-button-bar front-profile-button-bar save-bar">
+								<div class="button-group">
+									<button id="savebutton" title="Save a new version of this anonymous chart" disabled>
+												<i class="icon-save icon-large icon-fixed-width"></i>
+												<span>Save</span>
+											</button>
+											<button id="forkbutton" title="Duplicate into a new anonymous chart">
+														<i class="icon-code-fork icon-large icon-fixed-width"></i>
+														<span>Duplicate</span>
+													</button>
+												<button id="newbutton" title="Start over with a new chart">
+										<i class="icon-plus-sign icon-large icon-fixed-width"></i>
+										<span>New</span>
+									</button>
+								</div>
+							</div>
+							<div class="profile-button-bar front-profile-button-bar user-bar">
+								<div class="button-group">
+									<button id="loginbutton" title="Log in or sign up">
+												<span>Log in / Sign up</span>
+												<i class="icon-signin icon-large icon-fixed-width"></i>
+											</button>
+										</div>
+							</div>
+						</div>
+					<div id='loadingDiv' style="visibility: hidden"></div>
+				</div>
+				<div id="divGrayPadding" style="position: absolute; top: 56px; bottom: 62px; background: #eeeaea; width:100%; z-index: -1;"></div>
+				<div id="loadingMessageDiv">
+					<i class="icon-spinner icon-spin icon-4x"></i>
+				</div>
+				<div id="divEditor" style="overflow: hidden; position:absolute; width:100%; top: 56px; bottom: 0px; background: white; min-width: 600px">
+				</div>
+				<div id="codeEditor" style="width:100%; height:100%;" class="x-hidden">
+					<textarea id="codeEditorArea"></textarea>
+				</div>
+				<div id="customCodeEditor" style="width:100%; height:100%;" class="x-hidden">
+					<textarea id="customCodeArea"></textarea>
+				</div>
+
+				<div id="container" style="width:100%; height:100%;" class="x-hidden output-container"></div>
+
+			<script src="http://fm.cnbc.com/applications/cnbc.com/resources/styles/skin/DATA-VISUALISATION/HIGHCHARTS/resources-0.1.92/js/highstock-cloud.js" type="text/javascript"></script>
+				<script>
+			// TODO: Someone who knows the structure, put this code in the right JS-file
+			Highcharts.wrap(OutputView.prototype, 'update', function (proceed, cfg) {
+
+				var // Mapping of CSS selectors for SVG elements in the chart to setting ids
+					selectorMapping = [{
+						selector: 'text.highcharts-title',
+						id: 'title--text'
+					}, {
+						selector: 'text.highcharts-subtitle',
+						id: 'subtitle--text'
+					}, {
+						selector: 'g.highcharts-xaxis-labels',
+						id: 'xAxis-labels--format'
+					}, {
+						selector: 'g.highcharts-yaxis-labels',
+						id: 'yAxis-labels--format'
+					}, {
+						selector: '.highcharts-xaxis-title',
+						id: 'xAxis-title--text'
+					}, {
+						selector: '.highcharts-yaxis-title',
+						id: 'yAxis-title--text'
+					}, {
+						selector: 'rect.highcharts-background',
+						id: 'chart--backgroundColor'
+					}, {
+						selector: '.highcharts-tracker, .highcharts-data-labels',
+						id: '_series'
+					}, {
+						selector: 'g.highcharts-tooltip',
+						id: 'tooltip--enabled'
+					}, {
+						selector: 'g.highcharts-legend',
+						id: 'legend--enabled'
+					}],
+					selector,
+					chart;
+
+				proceed.call(this, cfg);
+				chart = this.chart;
+				if (!chart) {
+					return;
+				}
+
+				// Add some class names. In future Highcharts releases, these are added natively.
+				if (chart.chartBackground) {
+					chart.chartBackground.addClass('highcharts-background');
+				}
+				$.each(chart.axes, function () {
+					if (this.axisTitle) {
+						this.axisTitle.addClass('highcharts-' + this.coll.toLowerCase() + '-title');
+					}
+					if (this.labelGroup) {
+						this.labelGroup.addClass('highcharts-' + this.coll.toLowerCase() + '-labels');
+					}
+				});
+
+				$.each(selectorMapping, function(i, mapping) {
+					var $item = $(mapping.selector, chart.container);
+
+					// highcharts-axis-labels have equal class name for X and Y axis
+					if (mapping.index !== undefined) {
+						$item = $($item[mapping.index]);
+					}
+
+					$item.click(function (e) {
+						var cmp,
+							panel,
+							elem = this,
+							series;
+
+						// Selecting series is a special case
+						if (mapping.id === '_series') {
+							for (i = 0; i < chart.series.length; i++) {
+								series = chart.series[i];
+								if (
+										elem === series.group.element || 
+										elem === (series.markerGroup && series.markerGroup.element) || 
+										elem === (series.dataLabelsGroup && series.dataLabelsGroup.element) ||
+										elem === (series.tracker && series.tracker.element)
+
+									) {
+									cmp = Ext.getCmp('data-series-combo');
+									cmp.setValue(i);
+									break;
+								}
+							}
+							panel = editor.views.settings.buttonToSection["Data series"];
+
+						// Other elements are general
+						} else {
+							cmp = Ext.ComponentQuery.query('[name=' + mapping.id + ']')[1];
+							panel = cmp.up().up();
+						}
+
+						// Go to simple view
+						Ext.getCmp('progression-tabs').setActiveTab(2);
+						Ext.getCmp('customize-tabs').setActiveTab(0);
+
+						// Find the right chapter
+						$.each(Ext.getCmp('settings-chapters').items.items[0].items.items, function (i, button) {
+							if (panel.cls === editor.views.settings.buttonToSection[button.getText()].cls && editor.views.settings.getActiveSection() !== i) {
+								editor.views.settings.setActiveSection(i);
+							}
+						});
+
+						if (cmp) {
+
+							var $marker,
+								$inputEl = cmp.inputEl.dom.style.display !== 'none' ?
+									$(cmp.inputEl.dom) :
+									$('.sp-replacer', cmp.bodyEl.dom), // color picker
+								offset = $inputEl.offset();
+
+							$marker = $('<div>').css({
+								position: 'absolute',
+								background: '#a4edba',
+								left: e.pageX - 10,
+								top: e.pageY - 10,
+								width: 20,
+								height: 20,
+								borderRadius: '50%'
+							}).appendTo(document.body);
+
+							$marker.animate({
+								borderRadius: 0,
+								left: offset.left,
+								top: offset.top,
+								width: $inputEl[0].offsetWidth,
+								height: $inputEl[0].offsetHeight,
+								opacity: 0.4
+							}, {
+								complete: function () {
+									cmp.focus();
+									this.parentNode.removeChild(this);
+								}
+							});
+				
+						}
+					});
+				});
+	
+			});
+
+			</script>
+			<pre id="importData" style="display:none;"></pre>
+			</body>
+			</html>

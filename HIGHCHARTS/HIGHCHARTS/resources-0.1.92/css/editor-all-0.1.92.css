@@ -1,0 +1,2303 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+	font-family: Source Sans Pro;
+}
+
+.x-form-item-label {
+	font-family: Source Sans Pro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* body background */
+.x-border-layout-ct {
+	background-color: #eeeaea;
+}
+
+
+/* The button bar */
+.button-bar {
+	position: absolute;
+	left: 510px;
+	top: 16px;
+	height:44px
+}
+
+.editor-profile-button-bar {
+	top: 16px;
+}
+
+.profile-button-bar {
+	position: absolute;
+	right: 5px;
+	height:44px
+}
+
+.button-bar button, .profile-button-bar button {
+	border-radius: 0 !important;
+	border-width: 0px;
+	box-shadow: none;
+	background: none;
+	color: #d6d1d1;
+	text-shadow: none;
+	text-transform: uppercase;
+	padding: 12px 8px;
+	font-size: 12px;
+	margin: 8px 0 0 0;
+	float: left;
+	cursor: pointer;
+}
+.button-bar button:hover, .profile-button-bar button:hover {
+	background-color: #8085e8;
+}
+.button-bar button:disabled, .profile-button-bar button:disabled, .button-bar button:disabled:hover, .profile-button-bar button:disabled:hover  {
+	color: #666;
+}
+#loadingDiv {
+	float:right;
+	width: 200px;
+	height:20px;
+	color: #888;
+}
+#loadingMessageDiv {
+	position: absolute;
+	top: 40%;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+}
+
+/* buttons */
+.x-toolbar-footer .x-btn {
+	background-color: #a4edba;
+	border-color: white !important;
+	border-radius: 0;
+	background-image: none !important;
+	padding: 7px 10px;
+	margin-right: 2px;
+	text-transform: uppercase;
+}
+.x-toolbar-footer .x-btn span {
+	color: #15151d !important;
+	font-size: 12px !important;
+	font-weight: bold;
+}
+.x-toolbar-footer .x-btn:hover span {
+	color: white !important;
+}
+
+.paste-here {
+	margin: 1em 0 2em 0;
+}
+.paste-here h1 {
+	display: inline;
+	margin-right: 1em;
+}
+.import-area textarea {
+	height: 100%;
+	min-height: 100px;
+}
+/* Firefox: fix height of import area */
+.import-area td {
+	height: 100%;
+}
+.import-area.dropping textarea {
+	background: #eefdec;
+}
+.import-controls .x-form-item-label {
+	text-align: left;
+}
+#import-info {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	transition: left 1s;
+	top: 70px;
+	bottom: 58px;
+	font-size: 1.2em;
+	background: white;
+	padding-top: 70px;
+	padding-left: 2em;
+	padding-right: 20%;
+}
+#import-info p {
+	margin: 0.5em 0;
+}
+#import-info.hidden {
+	left: 110%;
+}
+
+/* text button */
+.samples {
+	visibility: hidden;
+	font-size: 13px;
+}
+.samples-header {
+	margin-top: 1em;
+	font-size: 13px;
+}
+.samples .x-btn {
+	display: inline-block;
+	float:right;
+	background: none;
+	border:none;
+	font-family: 'Source Sans Pro';
+	top: 0px;
+}
+.samples .x-btn:hover {
+	text-decoration: underline;
+}
+.samples .x-btn-inner:before {
+	content: "• ";
+}
+
+.samples .x-btn span {
+	font-size: 13px;
+}
+
+/* buttons at the left in simple view */
+.chapters {
+	margin-top: 10px;
+}
+.templatechapters {
+	margin-top: 0px;
+}
+.chapters .x-btn {
+	background-color: white !important;
+	border-color: white !important;
+	background-image: none !important;
+	border-top-color: #D0D0D0 !important;
+	padding-top: 7px;
+	padding-bottom: 0px;
+}
+.chapters .x-btn:first-child {
+	border-top-color: white !important;
+}
+.chapters .x-btn-inner button {
+}
+.chapters span {
+	text-align: left !important;
+	/*font-weight: bold !important;*/
+	color: #34343e !important;
+	font-size: 13px !important;
+}
+.chapters .x-btn-pressed {
+}
+.chapters .x-btn-pressed span {
+	color: #31436b !important;
+	font-weight: bold;
+}
+
+/* tabs */
+.x-tab-bar {
+	background: none !important;
+}
+.x-tab-bar-top .x-tab-bar-body {
+	border-width: 0;
+}
+.x-tab-bar-top .x-tab-bar-strip {
+	display: none;
+}
+.x-tab-bar-default-top {
+	border-width: 0;
+}
+.x-tab-default .x-tab-inner {
+	font-family: Source Sans Pro;
+	font-size: 14px;
+	height: auto !important;
+}
+.x-tab-default-top {
+	box-shadow: none;
+}
+
+.x-tab {
+	background: none !important;
+	border: none !important;
+}
+.x-tab span {
+	line-height: 28px !important;
+	margin-top: 0;
+	color: gray !important;
+	font-weight: normal !important;
+	text-transform: uppercase;
+}
+
+.x-tab span:hover {
+	color: #303030 !important;
+}
+.x-tab-active span.x-tab-inner {
+	color: black !important;
+}
+
+.x-tab-disabled span:hover {
+	color: grey !important;
+}
+.progression-tab-bar .x-box-target {
+	position: static;
+	max-width: 500px;
+	margin: 0 auto;
+}
+.progression-tab-bar .x-tab {
+	width: 25%;
+	left: auto !important;
+	position: static !important;
+	display: inline-block;
+	text-align: center;
+}
+.progression-tab-bar .x-tab-wrap, .progression-tab-bar .x-tab-button, .progression-tab-bar .x-tab-inner {
+	display: inline;
+}
+
+.view-tabs .x-tab span {
+	text-transform: normal;
+}
+.view-tabs .x-tab-bar {
+	background: none !important;
+	border-bottom: 1px solid silver !important;
+}
+
+.view-tabs .x-tab span.x-tab-inner {
+	border-bottom: 3px solid white !important;
+}
+.view-tabs .x-tab-active span.x-tab-inner {
+	border-bottom-color: #31436b !important;
+}
+
+.view-tabs .x-panel-body {
+	background-color: white;
+}
+.view-tabs .x-splitter {
+	border-left: 1px solid silver;
+}
+
+
+/* make code editor scrollable */
+.codeEditor div.x-panel-body {
+	overflow: auto;
+}
+
+.codeview-panel .x-accordion-hd {
+	/*codemirror gutter color */
+	background-color: #f7f7f7 !important;
+}
+
+/* Remove clear button from input widgets in IE. Setting width/height:0 preserves padding. */
+input::-ms-clear { 
+	width: 0;
+	height: 0; 
+}
+
+/* hide the Ext frame in the preview */
+.preview-panel .x-panel-body-default {
+	background: none;
+	border-width: 0;
+	padding: 1px; /* Avoid scrollbars */
+}
+
+.output-container {
+	overflow: hidden;
+}
+.output-container:hover {
+	overflow: scroll;
+}
+.output-container .highcharts-container {
+	margin: 0 auto;
+}
+.centered-highcharts-container {
+	margin: auto;
+	position: absolute !important;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+/* fieldset headers */
+div.x-fieldset-header-text, span.x-panel-header-text {
+	width: 100%;
+	margin: 20px 0 20px 0;
+	padding-left: 0 !important;
+	font-size: 18px;
+	font-weight: normal;
+	color: black;
+	font-family: "Source Sans Pro";
+}
+
+legend.x-fieldset-header {
+	padding-left: 0px !important;
+}
+
+fieldset.x-fieldset {
+	margin-bottom: 0px;
+}
+
+fieldset.series-fieldset {
+	border: none !important;
+}
+fieldset.series-fieldset * {
+	color: #15428b;
+	font-size: 16px;
+}
+
+
+/* monospace in the CSV pane */
+textarea {
+	font-family: monospace !important;
+}
+
+/* Bold text for modified options in the tree view */
+.tree-node-modified {
+	font-weight: bold !important;
+}
+
+/* jPicker without border and with the csame background as the rest of page */
+table.jPicker {
+	background-color: #ffffff !important;
+	border: 0 !important;
+}
+
+
+.x-mask {
+	background: #444;
+}
+.x-mask-msg {
+	border-radius: 0.5em;
+	border: none;
+}
+.x-mask-msg-inner {
+	border: none;
+	background: none;
+}
+.x-mask-msg-text {
+	background: none;
+	padding: 1em;
+}
+
+/* Style the window borders */
+.x-window-default {
+	border-radius: 0 !important;
+	border-width: 0;
+	background-color: white;
+	box-shadow: none;
+	padding: 15px;
+}
+/* Add window header graident */
+.x-window-header {
+	border: none;
+	background-color: white;
+	left: auto !important;
+	top: auto !important;
+}
+.x-window-header-default-top {
+	border-radius: 0 !important;
+	border-width: 0 !important;
+	box-shadow: none;
+	/*padding: 20px 0 0 25px;*/
+}
+.x-css-shadow {
+	display: none !important;
+}
+.x-window-header-text-default {
+	color: #15151d !important;
+	font-size: 20px !important;
+	line-height: 32px;
+}
+/* Remove the close button, there are other buttons that do this. */
+.x-window-header .x-tool-default {
+	display: none;
+}
+
+/* Tooltip styling; header in dark brown */
+.x-tip-header-default {
+
+}
+/* Header text in white, normal weight */
+.x-tip-header-text-default {
+	font-weight: normal;
+	color: #15428b;
+	font-size: 14px;
+	padding: 3px;
+	line-height: 1.5em;
+}
+/* Body is white */
+.x-tip-body-default {
+	background-color: #eefdec;
+}
+/* Border and background of whole tip */
+.x-tip-default {
+	background-color: #eefdec;
+}
+.x-tip-default code {
+	font-family: monospace;
+	color: #d14;
+}
+
+/* Grid view and tooltbar */
+.x-toolbar-default {
+	border-color: #FFFFFF;
+	background-image: none;
+	background-color: #FFFFFF;
+}
+.x-column-header, .x-grid-header-ct {
+	background-color: #EEEEEE;
+	background-image: none;
+}
+.x-grid-body {
+	border:none;
+	border-top: 1px solid #c5c5c5 !important;
+}
+.x-grid-header-ct-default {
+	border: 1px solid #c5c5c5;
+}
+
+/* White background on messageboxes */
+.x-window-body {
+	background: #ffffff !important;
+}
+.x-message-box p {
+	font-size: 13px;
+}
+
+/* Remove blue borders on accordions */
+.x-accordion-hd {
+	border-top-color: #e5e5e5 !important;
+	border-bottom: none !important;
+}
+.x-accordion-hd {
+	background: none !important;
+}
+.x-accordion-hd-last-collapsed {
+}
+.x-panel-header-default {
+	border: none;
+	background-image: none;
+	background-color: transparent;
+	padding: 4px 6px 3px 3px;
+}
+.x-panel-collapsed .x-window-header-default, .x-panel-collapsed .x-panel-header-default {
+	border-color: #EEE;
+}
+
+/* General panel border */
+.x-panel-body-default {
+	border-width: 0;
+}
+
+/* Style regular inputs */
+.x-body, .x-form-item {
+
+}
+.x-form-item-label {
+	text-align: right;
+	padding-right: 1em;
+}
+.x-form-item-body {
+	width: 50% !important;
+}
+.x-form-text {
+	background-image: none;
+}
+.x-form-focus {
+	background-color: #eefdec;
+}
+.x-form-trigger-wrap {
+	max-width: 100px;
+}
+.colorcombo .x-form-trigger-wrap {
+	max-width: 180px;
+}
+
+/* Change the color of tool images to black and white */
+.x-tool img {
+	background-image: url('../themes/images/default/tools/tool-sprites-bw.gif');
+}
+
+/* template icon buttons */
+.templateIcon {
+	border: 4px solid #dfe8f6;
+	cursor: pointer;
+	margin: 5px;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: calc(100% - 10px);
+}
+
+.col-2 .templateIcon {
+	width: calc(50% - 10px);
+}
+.col-3 .templateIcon {
+	width: calc(33% - 10px);
+}
+.col-4 .templateIcon {
+	width: calc(25% - 10px);
+}
+
+.templateIcon:hover {
+	border: 4px solid #a4edba;
+}
+
+.templateIcon:hover .info {
+	bottom: 0;
+}
+
+.templateIcon .info {   
+	display: block;
+	background-color: rgba(46, 46, 46, 0.85);
+	bottom: -2em;
+	width: 100%;
+	line-height: 2em;
+	border-radius: 0;
+	position: absolute;
+	font-size: 1.1em;
+	color: #ffffff;
+	text-align: center;
+	transition: bottom 0.2s;
+	z-index: 1;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.templateIcon img {
+	width: 100%;
+	height: 67%;
+}
+
+/* To do: add viewbox in the SVGs and test again in IE */;
+.x-trident .templateIcon {
+	width: auto;
+}
+.x-trident .templateIcon img {
+	width: auto;
+	height: auto;
+	max-width: 150px;
+	max-height: 100px;
+}
+
+.templateIcon.disabled {
+	border: 4px dotted #dfdfdf !important;
+}
+
+div.activeTemplate {
+	border-color: #a4edba;
+}
+
+div.activeTemplate .warning {
+	display: block;
+	background-color: rgba(220, 240, 234, 0.85);
+	top: 70%;
+	width: 100%;
+	height: 30%;
+	position: absolute;
+	font-size: 12px;
+	color: rgb(16, 172, 10);
+}
+
+div.activeTemplate .warning span {
+	font-size: 29px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+div.activeTemplate .warning div {
+	display: inline-block;
+	font-weight: bold;
+}
+
+.CodeMirror {
+	overflow-y: scroll;
+	overflow-x: scroll;
+}
+.CodeMirror pre {
+	font-family: "Courier New", monospace !important;
+}
+/* Override the default trigger and spinner images */
+.x-form-trigger {
+	background-image:url('../themes/images/default/form/trigger.gif');
+}
+div.x-form-spinner-up, div.x-form-spinner-down {
+	background-image:url('../themes/images/default/form/spinner.gif');
+}
+
+.note {
+	font: normal 14px Source Sans Pro;
+	text-align: left;
+	margin:10px 0px;
+}
+
+.help ol {
+	margin: 1em;
+	padding: 1em;
+}
+.help, .help .x-panel-body-default {
+	font-size: 14px;
+}
+.info {
+	background: #f3f3f3;
+	border-radius: 3px;
+}
+.info div {
+	background: none !important;
+}
+.info h4 .info-icon {
+	color: #7CB5EC;
+	font-size: 2em;
+	vertical-align: middle;
+	padding-right: 0.5em;
+}
+.info h4 .icon-warning-sign {
+	color: rgb(241, 92, 128);
+	font-size: 2em;
+	vertical-align: middle;
+	padding-right: 0.5em;
+}
+.info.info-box {
+	border: 1px solid #7CB5EC;
+	padding: 1em;
+	font-size: 1.2em;
+	z-index: 1;
+}
+.info.info-box p {
+	padding: 0.5em 0;
+}
+
+.info.plans {
+	display: block;
+	background-color: transparent;
+	margin-left: 10px;
+	font-size: 1.2em;
+}
+.info h3 {
+	padding: 0.5em 0;
+}
+#container .info {
+	margin: 5em;
+	padding: 2em;
+	font-size: 1.2em;
+}
+
+#share-note {
+	margin-top: 1em;
+}
+#share-note .share-save {
+	margin-top: 1em;
+}
+
+.share-menu {
+	border-bottom: 1px solid silver;
+	width:100%;
+	font-family: Source Sans Pro;
+	font-size: 14px;
+	height: auto !important;
+	/*height:35px;*/
+	color: gray !important;
+	font-weight: normal !important;
+	text-transform: uppercase;
+	left: 10px;
+	right:auto;
+}
+
+.share-menu ul {
+	height: 38px;
+	margin: 0px;
+	list-style-type: none;
+	float: left;
+}
+.share-menu ul li {
+	float: left;
+}
+
+.share-menu ul li a {
+	text-decoration: none;
+	display: block;
+	float: left;
+	padding: 0px 10px 0px 10px;
+	margin:10px;
+	margin-bottom: 7px;
+	position: relative;
+	color: #666666;
+	cursor: pointer;
+}
+.share-menu ul li a:hover {
+	color: #000000;
+}
+.share-menu ul li span.active a {
+	color: #000000;
+}
+
+.share-menu ul li span {
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+.share-menu ul li span:hover, .share-menu ul li span:active {
+	border-bottom: solid 3px #31436b;
+}
+.share-menu ul li span.active {
+	border-bottom: solid 3px #31436b !important;
+}
+
+#share-content {
+   text-align: center;
+}
+
+#share-content #embed, #share-content #download, #share-content #hotlink {
+	display:none;
+}
+
+#share-image {
+	border: 4px solid #dfe8f6;
+	background-color: #fff;
+	margin-top: 15px;
+	display: inline-block;
+}
+div#social input {
+	font: normal 12px tahoma,arial,verdana,sans-serif;
+	width: 90%;
+	min-width:200px;
+	margin: 15px 0px 15px 0px;
+}
+
+div#social, div#embed, div#download {
+	/*margin: 15px;
+	text-align: center;
+	float:left;*/
+	width: 300px;
+	float:left;
+	text-align: left;
+	margin: 10px;
+}
+
+div#embed textarea {
+	text-align: left;
+	width: 100%;
+	max-width: 450px;
+	height: 64px;
+	font-size: 13px;
+	font-family: monospace;
+	margin: 15px 0px 5px 0px;
+}
+
+a#hotlink {
+	display: block;
+	color: #555;
+	margin: 5px 0px;
+}
+a#hotlink:hover {
+	color:#a4edba;
+}
+
+div#hotlink {
+	font-size: 14px;
+	text-align: left;
+}
+
+div#hotlink h3 {
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	margin-left: -5px;
+}
+div#hotlink ul {
+	font-size: 13px;
+	margin: 10px 0px;
+}
+
+div#hotlink ul li {
+	margin-left: 20px;
+	list-style-type: disc;
+}
+div#hotlink-content {
+	float:right;
+	width:92%;
+}
+
+a.info-hotlink {
+	margin: 15px 0px;
+	text-decoration: none;
+	display: block;
+	color: black;
+	font-size: 14px;
+}
+a.info-hotlink:hover {
+	margin: 15px 0px;
+	text-decoration: underline;
+	display: block;
+}
+
+div#social ul {
+	display: block;
+	list-style: none;
+	overflow: hidden;
+}
+div#social ul li {
+	float: left;
+	margin: 5px;
+	width: 45px;
+	text-align: center;
+}
+div#social ul li span {
+	line-height: 25px;
+}
+
+/*modal share*/
+body {
+	margin:0;
+}
+.modal {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+}
+.popup {
+	margin: 100px auto;
+	max-width: 620px;
+	min-width: 310px;
+	background: white;
+	padding: 10px;
+}
+.popup iframe {
+	border: 0px;
+}
+
+a#btnClose {
+	float:right;
+	background-color: #a4edba;
+	padding: 7px 10px;
+	text-transform: uppercase;
+	width: 75px;
+	text-align: center;
+	margin: 6px;
+}
+a#btnClose span {
+	color: black;
+	font-size: 12px;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-weight: bold;
+}
+
+/* override template exclamation icon in settings view*/
+i.icon-exclamation-sign.i.settings {
+	margin-left: 5px;
+}
+
+/* Styling of series up/down buttons in data panel */
+.fieldset-bottom-toolbar {
+	border: 0;
+	padding: 0;
+	background-color: #ffffff;
+	background-image: none;
+}
+
+.fieldset-bottom-toolbar-info {
+	float: right;
+	padding-right: 10px;
+}
+
+.fieldset-bottom-toolbar .x-btn {
+	background-color: #d6d1d1;
+	border-color: white !important;
+	border-radius: 0;
+	background-image: none !important;
+	padding: 7px 10px;
+	margin-right: 2px;
+	text-transform: uppercase;
+}
+.x-column-header-text {
+	font-size: 12px;
+}
+.x-grid-view table {
+	border-collapse: collapse;
+}
+.x-grid-view .x-grid-cell {
+	border-width: 1px;
+	border-color: #ededed;
+	font-size: 12px;
+}
+.x-grid-view .x-grid-cell.number div {
+	color: #297EA8;
+}
+.x-grid-view .x-grid-cell.datetime div {
+	color: #39A832;
+}
+.x-grid-view .x-grid-cell-inner {
+	padding: 5px 6px;
+}
+
+/* Styling of wizard next button  */
+.progression-tabs-bottom-toolbar {
+	border: 0;
+	padding: 7px 10px;
+	margin: 6px;
+	background-color: #eeeaea;
+	background-image: none;
+}
+.x-btn {
+	background-color: #f0f0f0;
+	border-radius: 2px;
+	background-image: none !important;
+}
+.grid-panel .x-toolbar .x-btn {
+	background-color: #FFFFFF;
+}
+.x-btn.heavy-btn {
+	background-color: #a4edba;
+	border-color: white !important;
+	border-radius: 0;
+	background-image: none !important;
+	padding: 7px 10px;
+	margin-right: 2px;
+	text-transform: uppercase;
+}
+.x-btn.heavy-btn span {
+	color: #15151d !important;
+	font-size: 12px !important;
+	font-weight: bold;
+}
+.x-btn.heavy-btn:hover span {
+	color: white !important;
+}
+.progression-tabs .x-box-inner.x-box-scroller-left {
+	display: none;
+}
+.progression-tabs .x-box-inner.x-box-scroller-right {
+	display: none;
+}
+
+/*Free during beta */
+span#free {
+	font-size: 12px;
+	font-family: "Source Sans Pro", sans-serif;
+	color: #8085e8;
+	font-style: italic;
+	float: right;
+	white-space: nowrap;
+	text-decoration: underline;
+/*    display: none;*/
+}
+
+#editor-tree-view .x-panel-after-title div.x-panel-body {
+	background-color: transparent;
+}
+
+.x-panel-after-title div.x-panel-body {
+	background-color: #f7f7f7;
+}
+
+/* credits: http://stackoverflow.com/a/21899030/1482478*/
+.grayscale {
+	pointer-events: none;
+	-moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+	-o-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+	-webkit-filter: grayscale(100%);
+	filter: gray;
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+.colorbox {
+	display: inline-block;
+	border: 1px solid silver;
+	border-right: none;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+}
+
+.colorbox:last-child {
+	border: 1px solid silver;
+}
+
+.colorpicker div.sp-replacer.sp-light {
+	padding: 0px;
+	border: 1px solid silver;
+	background-color: white;
+}
+
+.colorpicker div.sp-preview {
+	border:none;
+	width: 25px;
+	height: 17px;
+	margin: 0px;
+} 
+
+.colorpicker div.sp-dd {
+	background-image:url('../themes/images/default/form/trigger.gif');
+	width: 17px;
+	height: 17px;
+	margin-top: -1px;
+	margin-right: -1px;
+}
+
+.colorpicker div.sp-dd:hover {
+	background-position: -17px 0px
+}
+
+.fonteditor div.sp-preview {
+	height: 20px;
+}
+
+.sp-container {
+	border-color: silver !important;
+}
+
+.x-panel-header-text-container-default {
+	color: black;
+	font-family: "Source Sans Pro";
+}
+
+.nothingfound {
+	margin: 1em;
+}
+
+.plans-panel {
+	margin-top: 40px;
+}html, body {
+        height: 100%;
+}
+.page-wrapper {
+        min-height: 100%;
+        margin: 0 auto -140px;
+}
+.front-top {
+	background: #34343e;
+	position: static;
+	height: 56px;
+}
+.pad {
+	padding: 0 1em;
+}
+
+.x-panel-body-default {
+	font-size: 1em;
+}
+
+span#release{
+	color: #8085e8;
+	font-family: Source Sans Pro;
+	font-size: 12px;
+	margin: 12px;
+	text-transform: uppercase;
+	position: absolute;
+	top: 19px;
+	left: 117px;
+}
+
+#top a {
+	text-decoration: none;
+	float:left;
+}
+#logo {
+	height: 35px; 
+	margin: 10px 17px;
+}
+#belt {
+	background: #d6d1d1;
+	padding: 30px 0;
+}
+
+#teaser {
+	width: 30%;
+	display: inline-block;
+	margin-top: 0;
+}
+#teaser h1 {
+	font-size: 40px;
+}
+#teaser p {
+	font-size: 24px;
+}
+button#getstarted {
+	margin: 1em auto; 
+	padding: 0.5em; 
+	color: white; 
+	background-color: #8085e8; 
+	font-size: 16pt; 
+	border: none;
+	cursor: pointer;
+}
+button#getstarted:hover {
+	background-color: #31436b;
+}
+
+
+#one-two-three {
+	margin: 0 auto;
+	max-width: 1150px;
+	background: none
+}
+
+#one-two-three .step {
+	display: inline-block;
+	width: 20%;
+	font-size: 120%;
+	color: #15151d;
+	margin-right: 3%;
+	padding: 0;
+}
+
+#one-two-three img {
+
+}
+
+#one-two-three h4 {
+	float: left;
+	font-size: 30pt;
+	margin-right: 15px;
+}
+#one-two-three p {
+	margin-top: 8px;
+}
+
+.front-profile-button-bar {
+	top: 0;
+}
+.front-profile-button-bar button span {
+	display: none; /* small screen */
+}
+.front-profile-button-bar button.social {
+	padding: 0;
+	font-size: 1em;
+	margin-top: 16px;
+}
+
+.save-bar {
+	left: 60%;
+}
+
+#desc {
+	max-width: 1170px;
+	margin: 2em auto;
+}
+
+#desc .section {
+	display: inline-block;
+	vertical-align: top;
+	width: 33%;
+}
+h3 {
+	font-size: 24px;
+	color: #555;
+}
+#desc p {
+	font-size: 14px;
+	color: #333;
+	padding: 1em 3em 4em 0em;
+}
+.chart-list-container {
+	max-width: 1170px;
+	margin: 0 auto 4em auto;
+}
+.chart-list {
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-size: 120%;
+	display: inline-block;
+	margin-bottom: 2em;
+}
+.profile-page .chart-list {
+	border: none;
+	padding: 0;
+	margin-left: -7px;
+}
+
+#agree-button-id {
+	margin-left: 8px;
+}
+
+.chart-list-two {
+	width: 49%;
+    vertical-align: top;
+}
+.chart-list:first-child {
+	margin-right: 1%;
+}
+.chart-list h3 {
+	margin: 10px;
+}
+.chart-list a.title {
+	color: #15428b;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 0.8em;
+	line-height: 1.2em;
+	display: block;
+	max-height: 2.3em;
+	overflow: hidden;
+	margin: 2px 0;
+}
+.chart-list .chart {
+	display: inline-block;
+	width: 152px;
+	height: 150px;
+	margin: 13px 12px;
+	vertical-align: top;
+
+}
+.chart-list .chartbox {
+	display: block;
+	width: auto;
+	height: 102px;
+	border: 1px solid silver;
+	overflow: hidden;
+	background: white;
+}
+.chartbox img {
+	max-width: 150px;
+	max-height: 100px;
+	margin: 0 auto;
+}
+.chart-list .date {
+	display: none;
+}
+.chart-list .subtext {
+	font-size: 0.7em;
+	color: #666;
+}
+.profile-page-main {
+	max-width: 1500px;
+}
+
+.profile-page-main div {
+	width: auto;
+}
+.profile-page .x-tab-bar .x-box-scroller-left {
+	display: none;
+}
+.profile-page .x-tab-bar, .profile-page .x-tab-bar div {
+	width: 100% !important;
+}
+
+.profile-page-main .product-card {
+	width: calc(25% - 20px) !important;
+	height: auto !important;
+	min-height: 250px;
+	border: 1px solid silver;
+	margin: 8px;
+	display: inline-block;
+	font-size: 1.2em;
+	text-align: center;
+}
+@media (max-width: 800px) {
+	.profile-page-main .product-card {
+		width: calc(33% - 20px) !important;
+	}
+}
+@media (max-width: 600px) {
+	.profile-page-main .product-card {
+		width: calc(50% - 20px) !important;
+	}
+        #footer-text {
+                font-size: 8px !important;                
+        }
+}
+@media (max-width: 400px) {
+	.profile-page-main .product-card {
+		width: calc(100% - 20px) !important;
+	}
+        #footer .container {
+                padding-top: 10px !important;
+        }
+}
+.product-card div {
+	width: auto !important;
+	background: none !important;
+}
+.profile-page-main .product-card-active {
+	background-color: #EEFDEC;
+}
+.product-card .product-card-title {
+	display: block;
+	text-align: center;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 1em;
+}
+.product-card .product-card-amount {
+	display: block;
+	font-size: 2em;
+}
+.product-card .product-card-description {
+	display: block;
+	margin: 1em;
+	min-height: 4em;
+}
+
+.product-card-status label {
+	padding: 5px;
+}
+
+.plans-no-billing {
+	margin: 10px;
+	font-size: 1.2em;
+}
+.push, #footer .container {
+        height: 140px; /* Change page wrapper margin if changing height (for sticky footer)*/
+}
+#footer {       
+        background-color: #15151d;
+	color: #eeeaea;
+	font-family: 'Source Sans Pro', sans-serif;      
+}
+#footer .container {
+	padding: 30px 5px;
+        max-width: 1170px;
+        margin: 0 auto;
+}
+#footer a {
+	color: inherit;
+        font-weight: bold;
+        text-decoration: none;
+}
+#footer-text {
+        font-size: 12px;
+        margin-top: 10px;      
+}
+#footer-copy, #support {
+        padding: 2px;
+        font-size: 16px;
+        width: 50%;
+        float: left;
+}
+#support a {
+        margin-left: 10px;
+}
+#footer a:hover {
+	color: #90ef7f;
+}
+.socials a {
+	margin-left: 10px;
+}
+#support, .socials {
+        text-align: right;
+}
+.exports-list .x-panel {
+	padding: 0.5em;
+}
+.exports-list tr:nth-child(1) td {
+	border-bottom: 1px solid silver;
+}
+.curtain {
+	position: absolute;
+	left: 0;
+	top: -30%;
+	background: rgba(46, 46, 46, 0.85);
+	transition: top 0.2s;
+	height: 30% !important;
+	text-align: center;
+}
+.curtain a.x-btn {
+	margin: 10px 5px 0 5px;
+}
+.curtain .x-panel-body {
+	background-color: transparent !important;
+}
+.chart:hover .curtain {
+	top: 0;
+}
+.user {
+	clear: both;
+	padding: 1em 50px;
+}
+.user h1 i {
+	color: #8085e8;
+}
+#profilebutton span {
+	max-width: 150px; 
+	white-space: nowrap; 
+	text-overflow: ellipsis; 
+	overflow: hidden;
+}
+@media screen and (max-width: 1000px) {
+	#one-two-three #teaser {
+		width: 100%;
+	}
+	#one-two-three .step {
+		width: 30%;
+		max-width: 230px;
+	}
+}
+@media screen and (max-width: 800px) {
+	.chart-list-two {
+		width: auto;
+	}
+}
+@media screen and (max-width: 700px) {
+	#getstarted {
+		display: none;
+	}
+	#desc {
+		padding: 1em;
+		width: auto;
+	}
+	#desc .section {
+		float: none;
+		width: auto;
+	}
+	#one-two-three .step {
+		width: 100%;
+		margin: 0;
+		max-width: none;
+	}
+	.chart-list-container {
+		width: auto;
+		height: auto;
+	}
+}
+@media screen and (max-width: 500px) {
+	.chart-list-container .pad {
+		padding: 0;
+	}
+	.chart-list {
+		border: none;
+		background-color: #f3f3f3;
+		padding: 1%;
+	}
+	.chart-list .chart {
+		width: 43%;
+		margin: 3%;
+	}
+	.chart-list .chartbox {
+		width: auto;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.user-bar button span {
+		display: inline;
+	}
+}
+@media screen and (min-width: 780px) {
+	.save-bar button span {
+		display: inline;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.front-page .user-bar button span, .show-page .user-bar button span {
+		display: inline;
+	}
+	.save-bar {
+		left: 42%;
+	}
+}
+/* Generated by Font Squirrel (http://www.fontsquirrel.com) on June 11, 2013 */
+
+
+
+@font-face {
+    font-family: 'hiconsregular';
+    src: url('../fonts/hicons/hicons-webfont.eot');
+    src: url('../fonts/hicons/hicons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/hicons/hicons-webfont.woff') format('woff'),
+         url('../fonts/hicons/hicons-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.hicon {
+	font-family: hiconsregular;
+}/***
+Spectrum Colorpicker v1.3.4
+https://github.com/bgrins/spectrum
+Author: Brian Grinstead
+License: MIT
+***/
+
+.sp-container {
+    position:absolute;
+    top:0;
+    left:0;
+    display:inline-block;
+    *display: inline;
+    *zoom: 1;
+    /* https://github.com/bgrins/spectrum/issues/40 */
+    z-index: 9999994;
+    overflow: hidden;
+}
+.sp-container.sp-flat {
+    position: relative;
+}
+
+/* Fix for * { box-sizing: border-box; } */
+.sp-container,
+.sp-container * {
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
+}
+
+/* http://ansciath.tumblr.com/post/7347495869/css-aspect-ratio */
+.sp-top {
+  position:relative;
+  width: 100%;
+  display:inline-block;
+}
+.sp-top-inner {
+   position:absolute;
+   top:0;
+   left:0;
+   bottom:0;
+   right:0;
+}
+.sp-color {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:20%;
+}
+.sp-hue {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:84%;
+    height: 100%;
+}
+
+.sp-clear-enabled .sp-hue {
+    top:33px;
+    height: 77.5%;
+}
+
+.sp-fill {
+    padding-top: 80%;
+}
+.sp-sat, .sp-val {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+.sp-alpha-enabled .sp-top {
+    margin-bottom: 18px;
+}
+.sp-alpha-enabled .sp-alpha {
+    display: block;
+}
+.sp-alpha-handle {
+    position:absolute;
+    top:-4px;
+    bottom: -4px;
+    width: 6px;
+    left: 50%;
+    cursor: pointer;
+    border: 1px solid black;
+    background: white;
+    opacity: .8;
+}
+.sp-alpha {
+    display: none;
+    position: absolute;
+    bottom: -14px;
+    right: 0;
+    left: 0;
+    height: 8px;
+}
+.sp-alpha-inner {
+    border: solid 1px #333;
+}
+
+.sp-clear {
+    display: none;
+}
+
+.sp-clear.sp-clear-display {
+    background-position: center;
+}
+
+.sp-clear-enabled .sp-clear {
+    display: block;
+    position:absolute;
+    top:0px;
+    right:0;
+    bottom:0;
+    left:84%;
+    height: 28px;
+}
+
+/* Don't allow text selection */
+.sp-container, .sp-replacer, .sp-preview, .sp-dragger, .sp-slider, .sp-alpha, .sp-clear, .sp-alpha-handle, .sp-container.sp-dragging .sp-input, .sp-container button  {
+    -webkit-user-select:none;
+    -moz-user-select: -moz-none;
+    -o-user-select:none;
+    user-select: none;
+}
+
+.sp-container.sp-input-disabled .sp-input-container {
+    display: none;
+}
+.sp-container.sp-buttons-disabled .sp-button-container {
+    display: none;
+}
+.sp-palette-only .sp-picker-container {
+    display: none;
+}
+.sp-palette-disabled .sp-palette-container {
+    display: none;
+}
+
+.sp-initial-disabled .sp-initial {
+    display: none;
+}
+
+
+/* Gradients for hue, saturation and value instead of images.  Not pretty... but it works */
+.sp-sat {
+    background-image: -webkit-gradient(linear,  0 0, 100% 0, from(#FFF), to(rgba(204, 154, 129, 0)));
+    background-image: -webkit-linear-gradient(left, #FFF, rgba(204, 154, 129, 0));
+    background-image: -moz-linear-gradient(left, #fff, rgba(204, 154, 129, 0));
+    background-image: -o-linear-gradient(left, #fff, rgba(204, 154, 129, 0));
+    background-image: -ms-linear-gradient(left, #fff, rgba(204, 154, 129, 0));
+    background-image: linear-gradient(to right, #fff, rgba(204, 154, 129, 0));
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr=#FFFFFFFF, endColorstr=#00CC9A81)";
+    filter : progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr='#FFFFFFFF', endColorstr='#00CC9A81');
+}
+.sp-val {
+    background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#000000), to(rgba(204, 154, 129, 0)));
+    background-image: -webkit-linear-gradient(bottom, #000000, rgba(204, 154, 129, 0));
+    background-image: -moz-linear-gradient(bottom, #000, rgba(204, 154, 129, 0));
+    background-image: -o-linear-gradient(bottom, #000, rgba(204, 154, 129, 0));
+    background-image: -ms-linear-gradient(bottom, #000, rgba(204, 154, 129, 0));
+    background-image: linear-gradient(to top, #000, rgba(204, 154, 129, 0));
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00CC9A81, endColorstr=#FF000000)";
+    filter : progid:DXImageTransform.Microsoft.gradient(startColorstr='#00CC9A81', endColorstr='#FF000000');
+}
+
+.sp-hue {
+    background: -moz-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+    background: -ms-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+    background: -o-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff0000), color-stop(0.17, #ffff00), color-stop(0.33, #00ff00), color-stop(0.5, #00ffff), color-stop(0.67, #0000ff), color-stop(0.83, #ff00ff), to(#ff0000));
+    background: -webkit-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+}
+
+/* IE filters do not support multiple color stops.
+   Generate 6 divs, line them up, and do two color gradients for each.
+   Yes, really.
+ */
+.sp-1 {
+    height:17%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ffff00');
+}
+.sp-2 {
+    height:16%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff00', endColorstr='#00ff00');
+}
+.sp-3 {
+    height:17%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ff00', endColorstr='#00ffff');
+}
+.sp-4 {
+    height:17%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#0000ff');
+}
+.sp-5 {
+    height:16%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0000ff', endColorstr='#ff00ff');
+}
+.sp-6 {
+    height:17%;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00ff', endColorstr='#ff0000');
+}
+
+.sp-hidden {
+    display: none !important;
+}
+
+/* Clearfix hack */
+.sp-cf:before, .sp-cf:after { content: ""; display: table; }
+.sp-cf:after { clear: both; }
+.sp-cf { *zoom: 1; }
+
+/* Mobile devices, make hue slider bigger so it is easier to slide */
+@media (max-device-width: 480px) {
+    .sp-color { right: 40%; }
+    .sp-hue { left: 63%; }
+    .sp-fill { padding-top: 60%; }
+}
+.sp-dragger {
+   border-radius: 5px;
+   height: 5px;
+   width: 5px;
+   border: 1px solid #fff;
+   background: #000;
+   cursor: pointer;
+   position:absolute;
+   top:0;
+   left: 0;
+}
+.sp-slider {
+    position: absolute;
+    top:0;
+    cursor:pointer;
+    height: 3px;
+    left: -1px;
+    right: -1px;
+    border: 1px solid #000;
+    background: white;
+    opacity: .8;
+}
+
+/*
+Theme authors:
+Here are the basic themeable display options (colors, fonts, global widths).
+See http://bgrins.github.io/spectrum/themes/ for instructions.
+*/
+
+.sp-container {
+    border-radius: 0;
+    background-color: #ECECEC;
+    border: solid 1px #f0c49B;
+    padding: 0;
+}
+.sp-container, .sp-container button, .sp-container input, .sp-color, .sp-hue, .sp-clear
+{
+    font: normal 12px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.sp-top
+{
+    margin-bottom: 3px;
+}
+.sp-color, .sp-hue, .sp-clear
+{
+    border: solid 1px #666;
+}
+
+/* Input */
+.sp-input-container {
+    float:right;
+    width: 100px;
+    margin-bottom: 4px;
+}
+.sp-initial-disabled  .sp-input-container {
+    width: 100%;
+}
+.sp-input {
+   font-size: 12px !important;
+   border: 1px inset;
+   padding: 4px 5px;
+   margin: 0;
+   width: 100%;
+   background:transparent;
+   border-radius: 3px;
+   color: #222;
+}
+.sp-input:focus  {
+    border: 1px solid orange;
+}
+.sp-input.sp-validation-error
+{
+    border: 1px solid red;
+    background: #fdd;
+}
+.sp-picker-container , .sp-palette-container
+{
+    float:left;
+    position: relative;
+    padding: 10px;
+    padding-bottom: 300px;
+    margin-bottom: -290px;
+}
+.sp-picker-container
+{
+    width: 172px;
+    border-left: solid 1px #fff;
+}
+
+/* Palettes */
+.sp-palette-container
+{
+    border-right: solid 1px #ccc;
+}
+
+.sp-palette .sp-thumb-el {
+    display: block;
+    position:relative;
+    float:left;
+    width: 24px;
+    height: 15px;
+    margin: 3px;
+    cursor: pointer;
+    border:solid 2px transparent;
+}
+.sp-palette .sp-thumb-el:hover, .sp-palette .sp-thumb-el.sp-thumb-active {
+    border-color: orange;
+}
+.sp-thumb-el
+{
+    position:relative;
+}
+
+/* Initial */
+.sp-initial
+{
+    float: left;
+    border: solid 1px #333;
+}
+.sp-initial span {
+    width: 30px;
+    height: 25px;
+    border:none;
+    display:block;
+    float:left;
+    margin:0;
+}
+
+.sp-initial .sp-clear-display {
+    background-position: center;
+}
+
+/* Buttons */
+.sp-button-container {
+    float: right;
+}
+
+/* Replacer (the little preview div that shows up instead of the <input>) */
+.sp-replacer {
+    margin:0;
+    overflow:hidden;
+    cursor:pointer;
+    padding: 4px;
+    display:inline-block;
+    *zoom: 1;
+    *display: inline;
+    border: solid 1px #91765d;
+    background: #eee;
+    color: #333;
+    vertical-align: middle;
+}
+.sp-replacer:hover, .sp-replacer.sp-active {
+    border-color: #F0C49B;
+    color: #111;
+}
+.sp-replacer.sp-disabled {
+    cursor:default;
+    border-color: silver;
+    color: silver;
+}
+.sp-dd {
+    padding: 2px 0;
+    height: 16px;
+    line-height: 16px;
+    float:left;
+    font-size:10px;
+}
+.sp-preview
+{
+    position:relative;
+    width:25px;
+    height: 20px;
+    border: solid 1px #222;
+    margin-right: 5px;
+    float:left;
+    z-index: 0;
+}
+
+.sp-palette
+{
+    *width: 220px;
+    max-width: 220px;
+}
+.sp-palette .sp-thumb-el
+{
+    width:16px;
+    height: 16px;
+    margin:2px 1px;
+    border: solid 1px #d0d0d0;
+}
+
+.sp-container
+{
+    padding-bottom:0;
+}
+
+
+/* Buttons: http://hellohappy.org/css3-buttons/ */
+.sp-container button {
+  background-color: #eeeeee;
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
+  background-image: linear-gradient(to bottom, #eeeeee, #cccccc);
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
+  border-radius: 3px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1;
+  padding: 5px 4px;
+  text-align: center;
+  text-shadow: 0 1px 0 #eee;
+  vertical-align: middle;
+}
+.sp-container button:hover {
+    background-color: #dddddd;
+    background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
+    background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
+    background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
+    background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
+    background-image: linear-gradient(to bottom, #dddddd, #bbbbbb);
+    border: 1px solid #bbb;
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #ddd;
+}
+.sp-container button:active {
+    border: 1px solid #aaa;
+    border-bottom: 1px solid #888;
+    -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+    -moz-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+    -ms-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+    -o-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+    box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
+}
+.sp-cancel
+{
+    font-size: 11px;
+    color: #d93f3f !important;
+    margin:0;
+    padding:2px;
+    margin-right: 5px;
+    vertical-align: middle;
+    text-decoration:none;
+
+}
+.sp-cancel:hover
+{
+    color: #d93f3f !important;
+    text-decoration: underline;
+}
+
+
+.sp-palette span:hover, .sp-palette span.sp-thumb-active
+{
+    border-color: #000;
+}
+
+.sp-preview, .sp-alpha, .sp-thumb-el
+{
+    position:relative;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
+}
+.sp-preview-inner, .sp-alpha-inner, .sp-thumb-inner
+{
+    display:block;
+    position:absolute;
+    top:0;left:0;bottom:0;right:0;
+}
+
+.sp-palette .sp-thumb-inner
+{
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.sp-palette .sp-thumb-light.sp-thumb-active .sp-thumb-inner
+{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIVJREFUeNpiYBhsgJFMffxAXABlN5JruT4Q3wfi/0DsT64h8UD8HmpIPCWG/KemIfOJCUB+Aoacx6EGBZyHBqI+WsDCwuQ9mhxeg2A210Ntfo8klk9sOMijaURm7yc1UP2RNCMbKE9ODK1HM6iegYLkfx8pligC9lCD7KmRof0ZhjQACDAAceovrtpVBRkAAAAASUVORK5CYII=);
+}
+
+.sp-palette .sp-thumb-dark.sp-thumb-active .sp-thumb-inner
+{
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAMdJREFUOE+tkgsNwzAMRMugEAahEAahEAZhEAqlEAZhEAohEAYh81X2dIm8fKpEspLGvudPOsUYpxE2BIJCroJmEW9qJ+MKaBFhEMNabSy9oIcIPwrB+afvAUFoK4H0tMaQ3XtlrggDhOVVMuT4E5MMG0FBbCEYzjYT7OxLEvIHQLY2zWwQ3D+9luyOQTfKDiFD3iUIfPk8VqrKjgAiSfGFPecrg6HN6m/iBcwiDAo7WiBeawa+Kwh7tZoSCGLMqwlSAzVDhoK+6vH4G0P5wdkAAAAASUVORK5CYII=);
+}
+
+.sp-clear-display {
+    background-repeat:no-repeat;
+    background-position: center;
+    background-image: url(data:image/gif;base64,R0lGODlhFAAUAPcAAAAAAJmZmZ2dnZ6enqKioqOjo6SkpKWlpaampqenp6ioqKmpqaqqqqurq/Hx8fLy8vT09PX19ff39/j4+Pn5+fr6+vv7+wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAUABQAAAihAP9FoPCvoMGDBy08+EdhQAIJCCMybCDAAYUEARBAlFiQQoMABQhKUJBxY0SPICEYHBnggEmDKAuoPMjS5cGYMxHW3IiT478JJA8M/CjTZ0GgLRekNGpwAsYABHIypcAgQMsITDtWJYBR6NSqMico9cqR6tKfY7GeBCuVwlipDNmefAtTrkSzB1RaIAoXodsABiZAEFB06gIBWC1mLVgBa0AAOw==);
+}
+/* BASICS */
+
+.CodeMirror {
+  /* Set height, width, borders, and global font properties here */
+  font-family: monospace;
+  height: 300px;
+}
+.CodeMirror-scroll {
+  /* Set scrolling behaviour here */
+  overflow: auto;
+}
+
+/* PADDING */
+
+.CodeMirror-lines {
+  padding: 4px 0; /* Vertical padding around content */
+}
+.CodeMirror pre {
+  padding: 0 4px; /* Horizontal padding of content */
+}
+
+.CodeMirror-scrollbar-filler {
+  background-color: white; /* The little square between H and V scrollbars */
+}
+
+/* GUTTER */
+
+.CodeMirror-gutters {
+  border-right: 1px solid #ddd;
+  background-color: #f7f7f7;
+}
+.CodeMirror-linenumbers {}
+.CodeMirror-linenumber {
+  padding: 0 3px 0 5px;
+  min-width: 20px;
+  text-align: right;
+  color: #999;
+}
+
+/* CURSOR */
+
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid black;
+}
+/* Shown when moving in bi-directional text */
+.CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 1px solid silver;
+}
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor {
+  width: auto;
+  border: 0;
+  background: transparent;
+  background: rgba(0, 200, 0, .4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6600c800, endColorstr=#4c00c800);
+}
+/* Kludge to turn off filter in ie9+, which also accepts rgba */
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor:not(#nonsense_id) {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+/* Can style cursor different in overwrite (non-insert) mode */
+.CodeMirror div.CodeMirror-cursor.CodeMirror-overwrite {}
+
+/* DEFAULT THEME */
+
+.cm-s-default .cm-keyword {color: #708;}
+.cm-s-default .cm-atom {color: #219;}
+.cm-s-default .cm-number {color: #164;}
+.cm-s-default .cm-def {color: #00f;}
+.cm-s-default .cm-variable {color: black;}
+.cm-s-default .cm-variable-2 {color: #05a;}
+.cm-s-default .cm-variable-3 {color: #085;}
+.cm-s-default .cm-property {color: black;}
+.cm-s-default .cm-operator {color: black;}
+.cm-s-default .cm-comment {color: #a50;}
+.cm-s-default .cm-string {color: #a11;}
+.cm-s-default .cm-string-2 {color: #f50;}
+.cm-s-default .cm-meta {color: #555;}
+.cm-s-default .cm-error {color: #f00;}
+.cm-s-default .cm-qualifier {color: #555;}
+.cm-s-default .cm-builtin {color: #30a;}
+.cm-s-default .cm-bracket {color: #997;}
+.cm-s-default .cm-tag {color: #170;}
+.cm-s-default .cm-attribute {color: #00c;}
+.cm-s-default .cm-header {color: blue;}
+.cm-s-default .cm-quote {color: #090;}
+.cm-s-default .cm-hr {color: #999;}
+.cm-s-default .cm-link {color: #00c;}
+
+.cm-negative {color: #d44;}
+.cm-positive {color: #292;}
+.cm-header, .cm-strong {font-weight: bold;}
+.cm-em {font-style: italic;}
+.cm-emstrong {font-style: italic; font-weight: bold;}
+.cm-link {text-decoration: underline;}
+
+.cm-invalidchar {color: #f00;}
+
+div.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}
+div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
+
+/* STOP */
+
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+
+.CodeMirror {
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.CodeMirror-scroll {
+  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* See overflow: hidden in .CodeMirror, and the paddings in .CodeMirror-sizer */
+  margin-bottom: -30px; margin-right: -30px;
+  padding-bottom: 30px; padding-right: 30px;
+  height: 100%;
+  outline: none; /* Prevent dragging from highlighting the element */
+  position: relative;
+}
+.CodeMirror-sizer {
+  position: relative;
+}
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actuall scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler {
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+.CodeMirror-vscrollbar {
+  right: 0; top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.CodeMirror-hscrollbar {
+  bottom: 0; left: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.CodeMirror-scrollbar-filler {
+  right: 0; bottom: 0;
+  z-index: 6;
+}
+
+.CodeMirror-gutters {
+  position: absolute; left: 0; top: 0;
+  height: 100%;
+  padding-bottom: 30px;
+  z-index: 3;
+}
+.CodeMirror-gutter {
+  height: 100%;
+  display: inline-block;
+  /* Hack to make IE7 behave */
+  *zoom:1;
+  *display:inline;
+}
+.CodeMirror-gutter-elt {
+  position: absolute;
+  cursor: default;
+  z-index: 4;
+}
+
+.CodeMirror-lines {
+  cursor: text;
+}
+.CodeMirror pre {
+  /* Reset some styles that the rest of the page might have set */
+  -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+}
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+.CodeMirror-linebackground {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 0;
+}
+
+.CodeMirror-linewidget {
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+}
+
+.CodeMirror-widget {
+  display: inline-block;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+  overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+  position: absolute;
+  width: 100%; height: 0px;
+  overflow: hidden;
+  visibility: hidden;
+}
+.CodeMirror-measure pre { position: static; }
+
+.CodeMirror div.CodeMirror-cursor {
+  position: absolute;
+  visibility: hidden;
+  border-right: none;
+  width: 0;
+}
+.CodeMirror-focused div.CodeMirror-cursor {
+  visibility: visible;
+}
+
+.CodeMirror-selected { background: #d9d9d9; }
+.CodeMirror-focused .CodeMirror-selected { background: #d7d4f0; }
+
+.cm-searching {
+  background: #ffa;
+  background: rgba(255, 255, 0, .4);
+}
+
+/* IE7 hack to prevent it from returning funny offsetTops on the spans */
+.CodeMirror span { *vertical-align: text-bottom; }
+
+@media print {
+  /* Hide the cursor when printing */
+  .CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+  }
+}
+.cm-s-eclipse span.cm-meta {color: #FF1717;}
+.cm-s-eclipse span.cm-keyword { line-height: 1em; font-weight: bold; color: #7F0055; }
+.cm-s-eclipse span.cm-atom {color: #219;}
+.cm-s-eclipse span.cm-number {color: #164;}
+.cm-s-eclipse span.cm-def {color: #00f;}
+.cm-s-eclipse span.cm-variable {color: black;}
+.cm-s-eclipse span.cm-variable-2 {color: #0000C0;}
+.cm-s-eclipse span.cm-variable-3 {color: #0000C0;}
+.cm-s-eclipse span.cm-property {color: black;}
+.cm-s-eclipse span.cm-operator {color: black;}
+.cm-s-eclipse span.cm-comment {color: #3F7F5F;}
+.cm-s-eclipse span.cm-string {color: #2A00FF;}
+.cm-s-eclipse span.cm-string-2 {color: #f50;}
+.cm-s-eclipse span.cm-error {color: #f00;}
+.cm-s-eclipse span.cm-qualifier {color: #555;}
+.cm-s-eclipse span.cm-builtin {color: #30a;}
+.cm-s-eclipse span.cm-bracket {color: #cc7;}
+.cm-s-eclipse span.cm-tag {color: #170;}
+.cm-s-eclipse span.cm-attribute {color: #00c;}
+.cm-s-eclipse span.cm-link {color: #219;}
+
+.cm-s-eclipse .CodeMirror-matchingbracket {
+	border:1px solid grey;
+	color:black !important;;
+}
+
+/*#tab-1418{display:none;}*/
+#free{display:none;}
+#divGrayPadding{top:0px!important;}
+.front-top{display:none;height:0px;}
